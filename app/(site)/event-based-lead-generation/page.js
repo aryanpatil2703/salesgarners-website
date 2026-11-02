@@ -1,5 +1,6 @@
 import EventJourney from '@/components/client/EventJourney';
 import Difference from '@/components/Difference';
+import EventTimeline from '@/components/client/EventTimeline';
 import { BtnP, CardsGrid, Cta, Head, NumberedSteps, PageHero } from '@/components/ui';
 
 export const metadata = { title: 'Event-Based Lead Generation', description: 'Turn every event into a revenue opportunity with intent-rich, event-based lead generation.' };
@@ -20,9 +21,9 @@ export default function Page() {
           ['Post-Event Follow-Ups', 'Personalized, multi channel follow ups both before and after event ensure your event conversations don’t go cold. So that your sales teams can move fast on high intent opportunities.'],
         ]} />
       </div></section>
-      <section className="sec"><div className="wrap">
+      <section className="sec evt-sec"><div className="wrap">
         <Head eb="What you get" title="Turn Events into Sales Accelerators" />
-        <CardsGrid cols={2} icons={['calendar', 'users', 'send', 'trending']} items={[
+        <EventTimeline items={[
           ['Qualified Meetings Before You Even Arrive', 'Walk into the event with your calendar already filled. Decision makers from your ICP are lined up in advance, making every conversation warmer and more productive.'],
           ['Stronger Connections On-Site', 'In a sea of booths and noise, your message cuts through. You meet the right people at the right time, creating conversations that actually stick.'],
           ['Follow-Ups That Drive Momentum', 'Forget the generic “just checking in” emails. Post event outreach is tailored to context, keeping prospects engaged and moving them closer to conversion.'],

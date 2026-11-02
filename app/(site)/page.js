@@ -4,7 +4,8 @@ import SignalFunnel from '@/components/client/SignalFunnel';
 import Carousel from '@/components/client/Carousel';
 import { SG } from '@/lib/content';
 import { getCases } from '@/lib/data';
-import { Arrow, BtnP, BtnS, CaseCards, ServiceBadge, Cta, DatabaseSection, Head, NumberedSteps, Publications, Signals, SplitTitle, StatBand, Testimonials, Trusted } from '@/components/ui';
+import { Arrow, BtnP, BtnS, CaseCards, ServiceBadge, Cta, DatabaseSection, Head, Publications, Signals, SplitTitle, StatBand, Testimonials, Trusted } from '@/components/ui';
+import DemandLedger from '@/components/client/DemandLedger';
 
 export const revalidate = 300;
 
@@ -31,8 +32,7 @@ export default async function Home() {
       <Trusted />
 
       <section className="sec alt"><div className="wrap">
-        <Head eb="Here's how we approach demand generation" title="Our Proven Demand Generation Approach Delivers Buyers Who Engage, Convert, and Grow Your Business" />
-        <NumberedSteps items={[['Utilize Our First-Party Data'], ['Intent-Based, Multi-Channel Outreach'], ['Smart Engagement Insights'], ['Deliver High-Quality Leads (MQLs)']]} />
+        <DemandLedger eb="Here's how we approach demand generation" title="Our Proven Demand Generation Approach Delivers Buyers Who Engage, Convert, and Grow Your Business" items={['Utilize Our First-Party Data', 'Intent-Based, Multi-Channel Outreach', 'Smart Engagement Insights', 'Deliver High-Quality Leads (MQLs)']} />
       </div></section>
 
       <section className="sec"><div className="wrap split">

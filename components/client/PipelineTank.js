@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 // Lead Generation hero: leads drop into the qualifying funnel, flow down the pipe and fill "Your pipeline" toward a monthly goal.
 // Drawn on a fixed 560x560 stage that scales to fit its column. Counts are illustrative.
 const GOALS = [50, 100, 200];
-const COLS = ['#F0ABFC', '#A5B4FC', '#FCD34D', '#86EFAC', '#F9A8D4'];
+const COLS = ['#F0ABFC', '#C4B0FF', '#B79CFF', '#F0ABFC', '#F5C2FD'];
 const ROLES = ['Director of IT', 'VP Marketing', 'Head of HR', 'CFO', 'CTO'];
 const XS = [40, 90, 140, 190, 240, 65, 115, 165, 215, 260];
 

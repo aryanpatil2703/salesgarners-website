@@ -3,10 +3,12 @@ import FitCheck from '@/components/client/FitCheck';
 import ForecastGauge from '@/components/client/ForecastGauge';
 import NoiseSignal from '@/components/client/NoiseSignal';
 import OutboundPanels from '@/components/client/OutboundPanels';
+import OutboundCircuit from '@/components/client/OutboundCircuit';
 import { Icon } from '@/components/Icon';
 import { LINKS } from '@/lib/content';
 import FaqConsole from '@/components/client/FaqConsole';
-import { BtnP, CardsGrid, Compare, Cta, Head, NumberedSteps, PageHero, Trusted } from '@/components/ui';
+import { BtnP, CardsGrid, Compare, Cta, Head, PageHero, Trusted } from '@/components/ui';
+import Difference from '@/components/Difference';
 
 export const metadata = { title: 'Outbound Sales Program', description: 'Predictable pipeline and qualified sales meetings from a multi channel outbound engine powered by intent data.' };
 
@@ -55,9 +57,8 @@ export default function Page() {
         </div>
       </div></section>
 
-      <section className="sec alt"><div className="wrap">
-        <Head title="How Our Outbound Engine Works" />
-        <NumberedSteps items={[['Target the Right Accounts', 'We map your ICP and build verified, high fit target account lists.'], ['Engage Across Channels', 'Multi-channel outreach via email, LinkedIn, and calling personalized to each account.'], ['Track Real Buyer Intent', 'We monitor engagement, content interaction, and signals using X-Engage.'], ['Convert to Sales Meetings', 'Only qualified, high intent leads are handed to SDRs for conversion.']]} />
+      <section className="sec obc-sec" aria-label="How Our Outbound Engine Works"><div className="wrap">
+        <OutboundCircuit title="How Our Outbound Engine Works" items={[['Target the Right Accounts', 'We map your ICP and build verified, high fit target account lists.'], ['Engage Across Channels', 'Multi-channel outreach via email, LinkedIn, and calling personalized to each account.'], ['Track Real Buyer Intent', 'We monitor engagement, content interaction, and signals using X-Engage.'], ['Convert to Sales Meetings', 'Only qualified, high intent leads are handed to SDRs for conversion.']]} />
       </div></section>
 
       <section className="sec"><div className="wrap">
@@ -74,6 +75,8 @@ export default function Page() {
           <CardsGrid cols={3} icons={['eye', 'database', 'clock']} items={[["Who's engaging", 'We identify the right accounts showing real interest in your solution.'], ['Verified intent data', 'We use advanced intent signals to find buyers actively researching solutions like yours.'], ['Sales-ready timing', 'We engage when buyers are ready, so your team talks to real opportunities.']]} />
         </div>
       </div></section>
+
+      <Difference />
 
       <Cta />
 

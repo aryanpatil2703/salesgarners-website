@@ -5,15 +5,15 @@
  */
 
 /* Shared tokens used by both themes */
-:root{--err:#FCA5A5;--warn-ink:#FDE68A;--tint1:rgba(255,255,255,.04);--tint2:rgba(255,255,255,.06)}
+:root{--err:#FCA5A5;--warn-ink:#F0ABFC;--tint1:rgba(255,255,255,.04);--tint2:rgba(255,255,255,.06)}
 
 html[data-theme="light"]{
   --bg:#FBFAFF; --bg2:rgba(243,239,252,.72); --surface:#FFFFFF; --surface2:#F3F0FB;
   --line:rgba(14,11,26,.08); --line2:rgba(14,11,26,.15);
   --fg:#151032; --muted:#55516F; --dim:#7A7693;
   --lilac:#6A2FD0;
-  --gradtext:linear-gradient(100deg,#6D43E7 0%,#C930B5 35%,#2F86D9 65%,#6D43E7 100%);
-  --err:#C81E1E; --warn-ink:#92400E; --tint1:rgba(14,11,26,.035); --tint2:rgba(14,11,26,.06);
+  --gradtext:linear-gradient(100deg,#6D43E7 0%,#C930B5 35%,#6A2FD0 65%,#6D43E7 100%);
+  --err:#C81E1E; --warn-ink:#A21FAF; --tint1:rgba(14,11,26,.035); --tint2:rgba(14,11,26,.06);
   color-scheme:light;
   background:var(--bg);
 }
@@ -27,7 +27,7 @@ html.theme-anim,html.theme-anim *,html.theme-anim *::before,html.theme-anim *::a
 html[data-theme="light"] .aurora{display:block;position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
 .aurora i{position:absolute;border-radius:50%;will-change:transform}
 .aurora i:nth-child(1){width:80vw;height:70vw;max-width:1100px;max-height:950px;left:-22vw;top:-20vw;background:radial-gradient(closest-side,rgba(126,62,228,.24),rgba(126,62,228,.10) 55%,transparent);animation:aur1 22s ease-in-out infinite alternate}
-.aurora i:nth-child(2){width:70vw;height:62vw;max-width:980px;max-height:860px;right:-24vw;top:2vh;background:radial-gradient(closest-side,rgba(47,159,239,.20),rgba(47,159,239,.08) 55%,transparent);animation:aur2 26s ease-in-out infinite alternate}
+.aurora i:nth-child(2){width:70vw;height:62vw;max-width:980px;max-height:860px;right:-24vw;top:2vh;background:radial-gradient(closest-side,rgba(155,123,255,.20),rgba(155,123,255,.08) 55%,transparent);animation:aur2 26s ease-in-out infinite alternate}
 .aurora i:nth-child(3){width:66vw;height:54vw;max-width:900px;max-height:760px;left:20vw;bottom:-24vw;background:radial-gradient(closest-side,rgba(213,53,189,.16),rgba(213,53,189,.06) 55%,transparent);animation:aur1 30s ease-in-out infinite alternate-reverse}
 @keyframes aur1{to{transform:translate(8vw,6vh) scale(1.12)}}
 @keyframes aur2{to{transform:translate(-7vw,8vh) scale(1.08)}}
@@ -79,7 +79,7 @@ html[data-theme="light"] .tab.on{background:var(--grad)}
 html[data-theme="light"] .cmp .bad{background:rgba(255,255,255,.5)}
 html[data-theme="light"] .cmp .good{background:linear-gradient(160deg,rgba(109,67,231,.12),rgba(187,50,200,.07))}
 html[data-theme="light"] :is(.pill,.tag){background:rgba(109,67,231,.1);color:#5B2CC9}
-html[data-theme="light"] .pill.g{background:rgba(16,150,100,.1);color:#047857}
+html[data-theme="light"] .pill.g{background:rgba(109,67,231,.1);color:#6A2FD0}
 html[data-theme="light"] .lg{background:rgba(255,255,255,.6)}
 html[data-theme="light"] .lg:hover{color:var(--fg);background:#fff}
 html[data-theme="light"] .step .n{color:#D8D1F2}
@@ -108,7 +108,7 @@ html[data-theme="light"] .filepick{color:var(--fg)}
 
 /* floating chips over animations */
 html[data-theme="light"] :is(.chip.g-tick,.chip.g-evt,.gvis .regions span:not(.on),.pchip,.pvis .pcards span){background:rgba(255,255,255,.85);border-color:rgba(255,255,255,.95);box-shadow:0 16px 36px -20px rgba(60,40,140,.45)}
-html[data-theme="light"] :is(.g-tick small,.pchip small){color:#047857}
+html[data-theme="light"] :is(.g-tick small,.pchip small){color:#6A2FD0}
 
 /* footer */
 html[data-theme="light"] footer{background:rgba(241,238,250,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}

@@ -6,7 +6,10 @@ import path from 'path';
 import { BtnP, Cta, Head, StatBand, Trusted, initials } from '@/components/ui';
 import SignalFlow from '@/components/client/SignalFlow';
 import MissionControl from '@/components/client/MissionControl';
-import OurStory from '@/components/OurStory';
+import WhoWeAre from '@/components/client/WhoWeAre';
+import JourneyRoad from '@/components/client/JourneyRoad';
+import WhyHowWhat from '@/components/client/WhyHowWhat';
+import { STORY_OFFICES } from '@/lib/ourStory';
 
 export const metadata = { title: 'About', description: 'SalesGarners helps B2B businesses grow faster by aligning sales and marketing through data driven strategies.' };
 
@@ -28,22 +31,17 @@ export default function About() {
 
       <Trusted />
 
-      <section className="sec"><div className="wrap split">
-        <div className="stack" data-r="">
-          <span className="eyebrow">Who we are</span>
-          <h2 className="h2">Who We Are?</h2>
-          <p className="lead">SalesGarners helps B2B businesses grow faster by aligning sales and marketing through data driven strategies. With services like demand generation, digital marketing, and our X-Engage platform, we turn high intent leads into real results backed by a team that blends experience with fresh ideas.</p>
-        </div>
-        <StatBand items={[['100', '+', 'Clients Served'], ['1.5', 'M+', 'Leads delivered']]} />
-      </div></section>
+      <section className="sec wwa-sec"><div className="wrap"><WhoWeAre /></div></section>
 
       <section className="sec alt"><div className="wrap">
         <MissionControl services={[...SG.services].sort((a, b) => (b.slug === 'lead-generation') - (a.slug === 'lead-generation'))} />
       </div></section>
 
-      <OurStory parts={['intro', 'pillars', 'closing']} />
+      <section className="sec jrd-sec" id="our-story" aria-label="Our journey"><div className="wrap"><JourneyRoad oldOffice={STORY_OFFICES.old} newOffice={STORY_OFFICES.now} /></div></section>
 
-      <section className="sec"><div className="wrap">
+      <section className="sec whw-sec" aria-label="Why, how and what we do"><div className="wrap"><WhyHowWhat /></div></section>
+
+      <section className="sec lead-sec"><div className="wrap">
         <Head eb="Leadership" title="Our Leadership Team" />
         <div className="g4">
           {SG.team.map(t => (

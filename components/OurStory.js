@@ -62,12 +62,12 @@ function milestones() {
 // parts: which blocks to render. About uses intro/pillars/closing; Culture & Careers uses culture.
 const ALL = ['intro', 'jump', 'pillars', 'milestones', 'culture', 'closing'];
 
-export default function OurStory({ parts = ALL }) {
+export default function OurStory({ parts = ALL, dark = false }) {
   const has = p => parts.includes(p);
   const ms = milestones();
   const reels = STORY_REELS;
   return (
-    <section id={has('intro') ? 'our-story' : 'culture'} className={`sgos ${poppins.variable}`} aria-labelledby={has('intro') ? 'sgos-title' : 'sgos-culture-title'}>
+    <section id={has('intro') ? 'our-story' : 'culture'} className={`sgos${dark ? ' sgos--dark' : ''} ${poppins.variable}`} aria-labelledby={has('intro') ? 'sgos-title' : 'sgos-culture-title'}>
       {/* A. Story introduction */}
       {has('intro') && (<>
       <div className="sgos-wrap sgos-intro">
@@ -75,7 +75,7 @@ export default function OurStory({ parts = ALL }) {
           <p className="sgos-eyebrow">Our Journey</p>
           <h2 id="sgos-title" className="sgos-h1">Every Big Journey Starts With a Simple Idea.</h2>
           <p>At SalesGarners, we believe business growth starts with meaningful connections. We began with a simple ambition: help businesses find the right opportunities, reach the right audiences, and turn conversations into growth.</p>
-          <p>As B2B marketing evolved, so did we. We expanded our capabilities across lead generation, demand generation, digital marketing, and data-driven engagement. We also built our publishing network to bring technology stories, insights, and industry conversations to a wider audience.</p>
+          <p>As B2B marketing evolved, so did we. We expanded our capabilities across lead generation, demand generation, and data-driven engagement. We also built our publishing network to bring technology stories, insights, and industry conversations to a wider audience.</p>
           <p>Our journey is about more than campaigns and conversions. It’s about the people behind every idea, the teamwork behind every milestone, and the curiosity that keeps us moving forward.</p>
           <p>Today, we continue to combine people, content, data, and technology to help businesses grow with purpose.</p>
           <blockquote className="sgos-quote">We don’t just build pipelines. We build connections, capabilities, and a culture that grows together.</blockquote>
@@ -102,7 +102,7 @@ export default function OurStory({ parts = ALL }) {
       <div className="sgos-wrap" id="sgos-pillars">
         <ul className="sgos-pillars" role="list" aria-label="Why, what and how">
           <li className="sgos-pillar" data-sgos-reveal=""><span className="sgos-pillar__ic"><Svg n="heart" /></span><h3 className="sgos-label">Why we do it</h3><p>Help businesses find meaningful opportunities and build stronger connections with their audiences.</p></li>
-          <li className="sgos-pillar sgos-pillar--accent" data-sgos-reveal=""><span className="sgos-pillar__ic"><Svg n="grid" /></span><h3 className="sgos-label">What we do</h3><p>B2B lead generation, demand generation, content syndication, digital marketing, data services, publishing, and X-Engage.</p></li>
+          <li className="sgos-pillar sgos-pillar--accent" data-sgos-reveal=""><span className="sgos-pillar__ic"><Svg n="grid" /></span><h3 className="sgos-label">What we do</h3><p>B2B lead generation, demand generation, content syndication, data services, publishing, and X-Engage.</p></li>
           <li className="sgos-pillar" data-sgos-reveal=""><span className="sgos-pillar__ic"><Svg n="pulse" /></span><h3 className="sgos-label">How we do it</h3><p>Combine data-driven targeting, relevant content, audience engagement, and lead qualification to help businesses reach their goals.</p></li>
         </ul>
       </div>

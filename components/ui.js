@@ -249,7 +249,7 @@ export function Signals() {
 }
 
 export function CaseCards({ cases, reveal = false }) {
-  const grads = [['#6D43E7', '#2563EB'], ['#BB32C8', '#6D43E7'], ['#0EA5E9', '#6D43E7'], ['#DB2777', '#7C3AED']];
+  const grads = [['#6D43E7', '#9B7BFF'], ['#BB32C8', '#6D43E7'], ['#9B7BFF', '#6D43E7'], ['#C930B5', '#7C3AED']];
   return cases.map((c, i) => {
     const [a, b] = grads[i % grads.length];
     const href = c.external_url || `/case-study/${c.slug}`;

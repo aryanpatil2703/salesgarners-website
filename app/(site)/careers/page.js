@@ -6,6 +6,8 @@ import { CAREERS } from '@/lib/content';
 import { getOpenJobs, JOB_TYPES, WORK_MODES } from '@/lib/data';
 import { Arrow, Head, PageHero } from '@/components/ui';
 import OurStory from '@/components/OurStory';
+import CareerPath from '@/components/client/CareerPath';
+import PerksWheel from '@/components/client/PerksWheel';
 
 export const metadata = { title: 'Culture & Careers', description: 'Life at SalesGarners and open roles in Pune. Join our demand generation, data and technology teams.' };
 export const revalidate = 60;
@@ -32,19 +34,13 @@ export default async function Careers() {
 
   return (
     <>
-      <PageHero shape="briefcase" chip={['Culture & Careers','Join the team']} eb={CAREERS.eyebrow} title={CAREERS.title} lead={CAREERS.lead}>
+      <PageHero visual={<CareerPath />} eb={CAREERS.eyebrow} title={CAREERS.title} lead={CAREERS.lead}>
         <a className="btn p" href="#open-roles">See open roles <Arrow /></a><a className="btn s" href="#culture">See our culture <Arrow /></a>
       </PageHero>
 
-      <section className="sec alt"><div className="wrap">
-        <div className="g4">
-          {CAREERS.perks.map(([i, t, d]) => (
-            <article className="card" data-r="" key={t}><div className="it"><Icon name={i} size={24} /></div><h3 className="h3">{t}</h3><p>{d}</p></article>
-          ))}
-        </div>
-      </div></section>
+      <section className="sec pkw-sec" aria-label="Why work at SalesGarners"><div className="wrap"><PerksWheel perks={CAREERS.perks} /></div></section>
 
-      <OurStory parts={['culture']} />
+      <OurStory parts={['culture']} dark />
 
       <section className="sec" id="open-roles"><div className="wrap">
         <Head eb={`${jobs.length} open ${jobs.length === 1 ? 'role' : 'roles'}`} title="Open roles" />

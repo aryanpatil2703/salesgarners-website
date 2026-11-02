@@ -5,12 +5,12 @@ import { useEffect, useState } from 'react';
 // Each group lights up in turn (every 5 seconds, looping) with bubbles showing what they read;
 // clicking a group shows it and restarts the timer. Reader groups and topics come from the publications.
 const GROUPS = [
-  { n: 'Tech leaders', readers: 'Technology decision-makers', pub: 'TechMediaGlobal', c: '#60A5FA', topics: ['Cybersecurity', 'AI', 'Semiconductors'] },
-  { n: 'Marketers', readers: 'Marketers and martech teams', pub: 'MarTech360Hub', c: '#FB923C', topics: ['Marketing tech', 'Data management', 'AI'] },
-  { n: 'HR leaders', readers: 'HR leaders and recruiters', pub: 'HRTech360Hub', c: '#F472B6', topics: ['Recruitment', 'Payroll', 'AI in HR'] },
-  { n: 'Finance', readers: 'Fintech, banking and payments readers', pub: 'FinTech360Hub', c: '#34D399', topics: ['Digital payments', 'Banking', 'Fraud & security'] },
-  { n: 'Sales leaders', readers: 'Revenue and sales leaders', pub: 'SalesTech360Hub', c: '#F87171', topics: ['Revenue operations', 'Lead generation', 'M&A'] },
-  { n: 'Founders', readers: 'Founders and investors', pub: 'Startup360Hub', c: '#FACC15', topics: ['Funding', 'Deep tech', 'AI'] },
+  { n: 'Tech leaders', readers: 'Technology decision-makers', pub: 'TechMediaGlobal', c: '#9B7BFF', topics: ['Cybersecurity', 'AI', 'Semiconductors'] },
+  { n: 'Marketers', readers: 'Marketers and martech teams', pub: 'MarTech360Hub', c: '#E05BEA', topics: ['Marketing tech', 'Data management', 'AI'] },
+  { n: 'HR leaders', readers: 'HR leaders and recruiters', pub: 'HRTech360Hub', c: '#F0ABFC', topics: ['Recruitment', 'Payroll', 'AI in HR'] },
+  { n: 'Finance', readers: 'Fintech, banking and payments readers', pub: 'FinTech360Hub', c: '#6D43E7', topics: ['Digital payments', 'Banking', 'Fraud & security'] },
+  { n: 'Sales leaders', readers: 'Revenue and sales leaders', pub: 'SalesTech360Hub', c: '#BB32C8', topics: ['Revenue operations', 'Lead generation', 'M&A'] },
+  { n: 'Founders', readers: 'Founders and investors', pub: 'Startup360Hub', c: '#C4B0FF', topics: ['Funding', 'Deep tech', 'AI'] },
 ];
 const SECTIONS = ['News', 'Interview', 'Guest Column', 'Event', 'Resource'];
 const REGIONS = ['NA', 'EMEA', 'APAC', 'LATAM', 'ANZ'];

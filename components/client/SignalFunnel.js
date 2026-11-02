@@ -44,7 +44,7 @@ function run(root, RM) {
 
   function draw() {
     const { w, h } = S, LT = document.documentElement.dataset.theme === 'light';
-    const col = LT ? ['#8E86B8', '#6D43E7', '#C930B5', '#059669'] : ['#7C83B8', '#8B6BFF', '#D054E0', '#34D399'];
+    const col = LT ? ['#8E86B8', '#6D43E7', '#C930B5', '#6D43E7'] : ['#7C83B8', '#8B6BFF', '#D054E0', '#E05BEA'];
     ctx.clearRect(0, 0, w, h);
     const cy = h * .52;
     // funnel walls
@@ -54,14 +54,14 @@ function run(root, RM) {
     GATES.forEach((g, i) => {
       const gx = g * w, span = h * (.31 - .08 * i);
       const gr = ctx.createLinearGradient(gx, cy - span, gx, cy + span);
-      gr.addColorStop(0, 'rgba(109,67,231,0)'); gr.addColorStop(.5, i === 2 ? (LT ? 'rgba(5,150,105,.85)' : 'rgba(52,211,153,.75)') : (LT ? 'rgba(170,40,170,.85)' : 'rgba(187,50,200,.8)')); gr.addColorStop(1, 'rgba(109,67,231,0)');
+      gr.addColorStop(0, 'rgba(109,67,231,0)'); gr.addColorStop(.5, i === 2 ? (LT ? 'rgba(109,67,231,.85)' : 'rgba(224,91,234,.75)') : (LT ? 'rgba(170,40,170,.85)' : 'rgba(187,50,200,.8)')); gr.addColorStop(1, 'rgba(109,67,231,0)');
       ctx.fillStyle = gr; ctx.fillRect(gx - 1.5, cy - span, 3, span * 2);
       ctx.fillStyle = LT ? 'rgba(109,67,231,.07)' : 'rgba(187,50,200,.06)'; ctx.fillRect(gx - 14, cy - span, 28, span * 2);
     });
     // particles
     for (const p of ps) {
       const px = p.x * w, py = p.y * h;
-      ctx.globalAlpha = p.a * (p.dead ? .6 : 1); ctx.fillStyle = p.dead ? (LT ? '#DC2626' : '#F87171') : col[p.st];
+      ctx.globalAlpha = p.a * (p.dead ? .6 : 1); ctx.fillStyle = p.dead ? (LT ? '#BB32C8' : '#E05BEA') : col[p.st];
       if (p.st === 3 && !p.dead) { ctx.shadowColor = col[3]; ctx.shadowBlur = 10; }
       ctx.beginPath(); ctx.arc(px, py, p.r + (p.st === 3 ? .8 : 0) + (LT ? .3 : 0), 0, 7); ctx.fill(); ctx.shadowBlur = 0;
     }

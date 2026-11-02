@@ -9,7 +9,7 @@ const FALLBACK = [
   'Demand Generation: How to Build a Pipeline That Doesn’t Depend on Luck',
   'AI-Powered B2B Demand Generation in 2026: How Buyer Intent Is Changing the Game',
 ];
-const READERS = [['CMO', '#F0ABFC'], ['VP', '#A5B4FC'], ['CTO', '#86EFAC'], ['DG', '#FCD34D'], ['CRO', '#F9A8D4'], ['HR', '#7DD3FC']];
+const READERS = [['CMO', '#F0ABFC'], ['VP', '#C4B0FF'], ['CTO', '#F0ABFC'], ['DG', '#B79CFF'], ['CRO', '#F5C2FD'], ['HR', '#B79CFF']];
 const LINES = ['100%', '94%', '97%', '70%', '88%'];
 const STEP = 55;   // ms per typed character / tick
 const HOLD = 60;   // ticks to hold after typing (publish + readers)

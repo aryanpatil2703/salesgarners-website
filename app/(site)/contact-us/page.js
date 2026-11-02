@@ -2,6 +2,7 @@ import { Icon } from '@/components/Icon';
 import LeadForm from '@/components/client/LeadForm';
 import { CopyButton } from '@/components/client/Widgets';
 import { BtnP, BtnS, PageHero } from '@/components/ui';
+import ContactCall from '@/components/client/ContactCall';
 
 export const metadata = { title: 'Contact Us', description: 'Get in touch with SalesGarners. Offices in Kharadi and Wanowrie, Pune.' };
 
@@ -13,7 +14,7 @@ const OFFICES = [
 export default function Page() {
   return (
     <>
-      <PageHero shape="chat" chip={['Get in touch','Talk to a strategist']} eb="Contact Us" title="Get in Touch with Us Today" lead="Tell us about your goals and our team will get back to you with a plan to grow your pipeline."><BtnP>Book a Demo</BtnP><BtnS href="/pilot-campaign">Start a Free Pilot</BtnS></PageHero>
+      <PageHero visual={<ContactCall />} eb="Contact Us" title="Get in Touch with Us Today" lead="Tell us about your goals and our team will get back to you with a plan to grow your pipeline."><BtnP>Book a Demo</BtnP><BtnS href="/pilot-campaign">Start a Free Pilot</BtnS></PageHero>
       <section className="sec" style={{ paddingTop: 10 }}><div className="wrap split" style={{ alignItems: 'start' }}>
         <div className="stack">
           {OFFICES.map(([k, a, p]) => (

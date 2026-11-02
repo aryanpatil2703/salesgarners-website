@@ -49,7 +49,7 @@ export default function MissionControl({ services = [] }) {
             <svg width="72" height="132" viewBox="0 0 64 120">
               <defs>
                 <linearGradient id="mcb" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stopColor="#FFFFFF" /><stop offset="1" stopColor="#C9BBF5" /></linearGradient>
-                <linearGradient id="mcf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#FDE68A" /><stop offset=".5" stopColor="#F0ABFC" /><stop offset="1" stopColor="#BB32C8" stopOpacity="0" /></linearGradient>
+                <linearGradient id="mcf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#F0ABFC" /><stop offset=".5" stopColor="#F0ABFC" /><stop offset="1" stopColor="#BB32C8" stopOpacity="0" /></linearGradient>
               </defs>
               <g className="mc-flame"><path d="M24 80 Q32 122 40 80Z" fill="url(#mcf)" /></g>
               <path d="M32 4 C46 18 50 40 48 70 L16 70 C14 40 18 18 32 4Z" fill="url(#mcb)" />
