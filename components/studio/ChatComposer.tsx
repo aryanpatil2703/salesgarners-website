@@ -86,9 +86,8 @@ export function ChatComposer({
           style={{ outline: "none", boxShadow: "none", border: "none" }}
         />
 
-        <div className="mt-1 flex items-center justify-between">
+        <div className="mt-1 flex items-center justify-between min-h-[28px]">
           <div className="flex items-center gap-2 text-[11px] text-zinc-500 font-medium select-none">
-            <span>Press Enter ↵ to send, Shift+Enter for new line</span>
             {value.length > 500 && (
               <span className={cn(isOverLimit ? "text-rose-400 font-bold" : "text-zinc-500")}>
                 ({value.length}/{maxLength})

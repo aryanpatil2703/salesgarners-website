@@ -14,7 +14,7 @@ import {
   ExternalLink,
   AlertCircle
 } from "lucide-react";
-import { Message, MessageCitation } from "@/lib/storage/chat-storage";
+import { Message, MessageCitation } from "@/lib/chat-types";
 import { cn } from "@/lib/utils";
 
 export interface ChatMessageProps {
@@ -248,6 +248,7 @@ export function ChatMessage({
 
   return (
     <div className="py-2 space-y-2.5 animate-in fade-in-50 duration-200">
+      <div className="w-8 h-px bg-zinc-800/90 mb-3 select-none" aria-hidden="true" />
       {/* Collapsible Retrieval Reasoning Accordion */}
       {message.sources && message.sources.length > 0 && (
         <div>
@@ -261,7 +262,7 @@ export function ChatMessage({
             ) : (
               <ChevronRight className="h-3.5 w-3.5 text-zinc-500 group-hover:text-zinc-300" />
             )}
-            <span>Read up and searched SalesGarners knowledge base</span>
+            <span>Read up and searched docs</span>
           </button>
 
           {sourcesOpen && (

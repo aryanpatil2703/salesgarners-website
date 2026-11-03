@@ -9,7 +9,7 @@ import {
   ArrowDown,
   Sparkles,
 } from "lucide-react";
-import { Message } from "@/lib/storage/chat-storage";
+import { Message } from "@/lib/chat-types";
 import { ChatMessage } from "./ChatMessage";
 import { ChatComposer } from "./ChatComposer";
 import { cn } from "@/lib/utils";
