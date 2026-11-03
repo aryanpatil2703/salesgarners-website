@@ -1,0 +1,88 @@
+/* SalesGarners Chatbot - Launcher Styles */
+
+.sg-chat-widget {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  font-family: var(--body, system-ui, sans-serif);
+}
+
+/* Floating Launcher Button */
+.sg-chat-launcher {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #6D43E7 0%, #BB32C8 100%);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 10px 28px -6px rgba(109, 67, 231, 0.65), 0 0 16px rgba(187, 50, 200, 0.4);
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14.5px;
+  transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.28s ease;
+  user-select: none;
+}
+
+.sg-chat-launcher:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 16px 36px -6px rgba(187, 50, 200, 0.8), 0 0 24px rgba(109, 67, 231, 0.5);
+}
+
+.sg-chat-launcher:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Pulsing aura ring */
+.sg-launcher-aura {
+  position: absolute;
+  inset: -4px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(187, 50, 200, 0.4) 0%, transparent 70%);
+  animation: sg-pulse-ring 2.4s infinite cubic-bezier(0.2, 0.8, 0.2, 1);
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes sg-pulse-ring {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.2); opacity: 0.15; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+.sg-launcher-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+}
+
+.sg-launcher-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.sg-badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #34D399;
+  box-shadow: 0 0 8px #34D399;
+}
+
+/* Hard reset for all inputs and textareas inside chatbot to suppress global :focus-visible lilac outline */
+.sg-chat-widget textarea,
+.sg-chat-widget textarea:focus,
+.sg-chat-widget textarea:focus-visible,
+.sg-chat-widget [contenteditable="true"]:focus,
+.sg-chat-widget [contenteditable="true"]:focus-visible,
+.sg-chat-widget button:focus-visible {
+  outline: none !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+}

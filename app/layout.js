@@ -13,15 +13,15 @@ export const metadata = {
 
 export const viewport = { themeColor: '#06081A', width: 'device-width', initialScale: 1, viewportFit: 'cover' };
 
+/**
+ * Root layout component injecting global CSS stylesheets and HTML shell.
+ * @param {object} props
+ * @param {React.ReactNode} props.children - Child components
+ * @returns {JSX.Element}
+ */
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" />
-      </head>
       <body>{children}</body>
     </html>
   );

@@ -2,6 +2,7 @@ import Header from '@/components/client/Header';
 import Footer from '@/components/Footer';
 import Interactions from '@/components/client/Interactions';
 import Consent from '@/components/client/Consent';
+import Chatbot from '@/components/client/Chatbot';
 import { SOCIAL } from '@/lib/content';
 
 const THEME_BOOT = `(function(){var r=document.documentElement,m='dark';try{m=localStorage.getItem('sg-theme')||'dark'}catch(e){}if(m!=='light'&&m!=='auto'&&m!=='dark')m='dark';var t=m==='auto'?(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'):m;r.dataset.theme=t;r.dataset.mode=m})()`;
@@ -14,6 +15,12 @@ const ORG = {
   sameAs: SOCIAL.map(x => x[2]),
 };
 
+/**
+ * Global site layout wrapper providing navigation, footer, theme bootstrapping, and AI Concierge.
+ * @param {object} props
+ * @param {React.ReactNode} props.children - Route child components
+ * @returns {JSX.Element}
+ */
 export default function SiteLayout({ children }) {
   return (
     <>
@@ -25,6 +32,7 @@ export default function SiteLayout({ children }) {
       <main id="main">{children}</main>
       <Footer />
       <Consent />
+      <Chatbot />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ORG) }} />
     </>
   );

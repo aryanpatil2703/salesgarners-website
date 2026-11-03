@@ -1,11 +1,11 @@
-import { Poppins } from 'next/font/google';
+// import { Poppins } from 'next/font/google';
 import { YEARS, SHOW_WEBSITE_REFRESH, STORY_PUBS, STORY_PHOTOS, STORY_REELS, STORY_INTRO, STORY_CATS } from '@/lib/ourStory';
 import OurStoryClient from './client/OurStoryClient';
 import './our-story.css';
 
 // "Our Story: From a Vision to a Growing B2B Ecosystem" (About page).
 // Self-contained: every class starts with .sgos, the font is scoped, and content lives in lib/ourStory.js.
-const poppins = Poppins({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800'], display: 'swap', variable: '--sgos-font' });
+const poppins = { variable: 'sgos-font-poppins' };
 
 const I = {
   heart: <path d="M12 20.5s-7.5-4.6-7.5-11A4.3 4.3 0 0 1 12 6.8a4.3 4.3 0 0 1 7.5 2.7c0 6.4-7.5 11-7.5 11z" />,

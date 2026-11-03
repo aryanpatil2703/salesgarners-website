@@ -1,0 +1,64 @@
+version: '3.8'
+
+services:
+  # -------------------------------------------------------------
+  # Production PostgreSQL 16 with pgvector Extension
+  # -------------------------------------------------------------
+  pgvector:
+    image: pgvector/pgvector:pg16
+    container_name: salesgarners-pgvector-prod
+    restart: always
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-salesgarners}
+      POSTGRES_USER: ${POSTGRES_USER:-salesgarners_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    # Bind to localhost on host so external internet cannot access port 5432 directly
+    ports:
+      - "127.0.0.1:${PG_PORT:-5432}:5432"
+    volumes:
+      - pgvector_prod_data:/var/lib/postgresql/data
+      - ./db/pgvector_schema.sql:/docker-entrypoint-initdb.d/01_init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-salesgarners_user} -d ${POSTGRES_DB:-salesgarners}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    networks:
+      - salesgarners-prod-network
+
+  # -------------------------------------------------------------
+  # Production Next.js App
+  # -------------------------------------------------------------
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: salesgarners-web-prod
+    restart: always
+    ports:
+      - "${WEB_PORT:-3000}:3000"
+    environment:
+      NODE_ENV: production
+      # Internal Docker network DNS connects directly to pgvector service
+      PG_CONNECTION_STRING: postgresql://${POSTGRES_USER:-salesgarners_user}:${POSTGRES_PASSWORD}@pgvector:5432/${POSTGRES_DB:-salesgarners}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-}
+      SESSION_SECRET: ${SESSION_SECRET:-}
+    depends_on:
+      pgvector:
+        condition: service_healthy
+    networks:
+      - salesgarners-prod-network
+
+volumes:
+  pgvector_prod_data:
+    name: salesgarners_pgvector_prod_data
+
+networks:
+  salesgarners-prod-network:
+    name: salesgarners_prod_network
+    driver: bridge
+

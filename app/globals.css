@@ -1,3 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{--border:rgba(255,255,255,.12);--muted-foreground:#A7AECF;--foreground:#F4F3FF}
 :root{--font-display:"Bricolage Grotesque";--font-body:"Manrope";--font-mono:"JetBrains Mono"}
 html,body{margin:0}
 img{max-width:100%}

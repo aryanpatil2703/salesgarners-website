@@ -1,0 +1,64 @@
+version: '3.8'
+
+services:
+  # -------------------------------------------------------------
+  # PostgreSQL 16 with pgvector Extension
+  # Official image maintained by the pgvector team.
+  # -------------------------------------------------------------
+  pgvector:
+    image: pgvector/pgvector:pg16
+    container_name: salesgarners-pgvector
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-salesgarners}
+      POSTGRES_USER: ${POSTGRES_USER:-salesgarners_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-salesgarners_secure_password}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - "${PG_PORT:-5435}:5432"
+    volumes:
+      # Persistent named volume for vector database records
+      - pgvector_data:/var/lib/postgresql/data
+      # Mount schema initialization script into Postgres init hook
+      - ./db/pgvector_schema.sql:/docker-entrypoint-initdb.d/01_init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-salesgarners_user} -d ${POSTGRES_DB:-salesgarners}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    networks:
+      - salesgarners-network
+
+  # -------------------------------------------------------------
+  # Optional: SalesGarners Next.js Web App in Docker
+  # Uncomment or run 'docker compose up web' for complete containerization
+  # -------------------------------------------------------------
+  # web:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   container_name: salesgarners-web
+  #   restart: unless-stopped
+  #   ports:
+  #     - "3000:3000"
+  #   environment:
+  #     NODE_ENV: production
+  #     PG_CONNECTION_STRING: postgresql://${POSTGRES_USER:-salesgarners_user}:${POSTGRES_PASSWORD:-salesgarners_secure_password}@pgvector:5432/${POSTGRES_DB:-salesgarners}
+  #     OPENAI_API_KEY: ${OPENAI_API_KEY}
+  #     GEMINI_API_KEY: ${GEMINI_API_KEY}
+  #   depends_on:
+  #     pgvector:
+  #       condition: service_healthy
+  #   networks:
+  #     - salesgarners-network
+
+volumes:
+  pgvector_data:
+    name: salesgarners_pgvector_data
+
+networks:
+  salesgarners-network:
+    name: salesgarners_network
+    driver: bridge
+
