@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build --webpack",
+    "postbuild": "node -e \"try { require('fs').rmSync('.next/lock', { force: true, recursive: true }); } catch {}\"",
     "start": "next start",
     "db:setup": "node db/setup.js",
     "db:check": "node scripts/db-check.js",

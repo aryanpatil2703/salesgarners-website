@@ -26,7 +26,10 @@ const nextConfig = {
   // Treat server-only database drivers as external packages
   serverExternalPackages: ['pg', 'mysql2'],
   // admin uploads (whitepaper PDFs up to 20 MB) go through server actions
-  experimental: { serverActions: { bodySizeLimit: '25mb' } },
+  experimental: {
+    serverActions: { bodySizeLimit: '25mb' },
+    lockDistDir: false,
+  },
   async redirects() {
     return LEGACY.map(([source, destination]) => ({ source, destination, permanent: true }));
   },
